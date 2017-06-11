@@ -52,7 +52,14 @@ def about(request):
 
 def accountingAccounts(request):
     accounts = AccountingAccounts.objects.all()
-    return render(request, 'app/accountingAccounts.html', {'accounts': accounts})
+    return render(
+        request ,
+        'app/accountingAccounts.html' ,
+        {
+            'accounts': accounts,
+            'year':datetime.now().year,
+         }
+   )
 
 
 def save_account_form(request, form, template_name):
@@ -61,7 +68,7 @@ def save_account_form(request, form, template_name):
         if form.is_valid():
             form.save()
             data['form_is_valid'] = True
-            accounts = account.objects.all()
+            accounts = AccountingAccountsForm.objects.all()
             data['html_account_list'] = render_to_string('app/accountingAccountsPartial.html', {
                 'accounts': accounts
             })
@@ -85,7 +92,7 @@ def accountingAccountsUpdate(request, pk):
     if request.method == 'POST':
         form = AccountingAccountsForm(request.POST, instance=account)
     else:
-        form = accountForm(instance=account)
+        form = AccountingAccountsForm(instance=account)
     return save_account_form(request, form, 'app/accountingAccountsUpdatePartial.html')
 
 
@@ -95,7 +102,7 @@ def accountingAccountsDelete(request, pk):
     if request.method == 'POST':
         account.delete()
         data['form_is_valid'] = True
-        accounts = account.objects.all()
+        accounts = AccountingAccounts.objects.all()
         data['html_account_list'] = render_to_string('app/accountingAccountsPartial.html', {
             'accounts': accounts
         })
