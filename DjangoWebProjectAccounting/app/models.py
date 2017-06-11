@@ -11,40 +11,57 @@ class Settings(models.Model):
     month = models.IntegerField(int)
     majorizationProcessed = models.BooleanField(bool)
     companyRNC = models.IntegerField(int)
-    taxClosingMonth = models.IntegerField(int)
+    taxClosingMonth = models.DecimalField(max_digits=5, decimal_places=2)
 
 class Levels (models.Model):
-    id=models.IntegerField(int)
-    description=models.CharField()
-
-
-class AccountingAccounts (models.Model):
-    id = models.CharField()
-    description = models.CharField()
-    accountType = models.ForeignKey(AccountTypes)
-    allowsTransactions = models.BooleanField(bool)
-    level = models.ForeignKey(Levels) # 1 to 3
-    majorAccount = models.CharField()
-    balance = models.FloatField(float)
-    state = models.FloatField(float)
-
+    description = models.CharField(max_length=30)
 
 class AccountTypes (models.Model):
-    id = models.CharField()
-    description = models.CharField()
-    origin = models.CharField() # DB to CR
+    description = models.CharField(max_length=30)
+    origin = models.CharField(max_length=2) # DB to CR
     state = models.BooleanField(bool)
+
+class AccountingAccounts (models.Model):
+    char = models.CharField('Código',max_length=20)
+    description = models.CharField('Descripción',max_length=30)
+    accountTypeId = models.ForeignKey(AccountTypes)
+    allowsTransactions = models.BooleanField('Permitir Transacciones?')
+    level = models.ForeignKey(Levels) # 1 to 3
+    majorAccount = models.ForeignKey('self')
+    balance = models.DecimalField('Balance',max_digits=5, decimal_places=2)
+    state = models.BooleanField('Estado')
+
+
+class MovementTypes (models.Model):
+    label = models.CharField(max_length=20)
+    description = models.CharField(max_length=30)
+
+
 
 class CurrencyTypes (models.Model):
-    id = models.CharField()
-    description = models.CharField()
-    lastExchangeRate = models.FloatField(float)
+    lavelId = models.CharField(max_length=5)
+    description = models.CharField(max_length=20)
+    lastExchangeRate =models.DecimalField(max_digits=5, decimal_places=2)
     state = models.BooleanField(bool)
 
-#class AccountingEntry(models.Model):
+class AuxiliarOrigin(models.Model):
+    description = models.CharField(max_length=30)
+
+class AccountingEntry(models.Model):
+    seatId = models.CharField(max_length=20)
+    description = models.CharField(max_length=30)
+    auxiliarOriginId = models.ForeignKey(AuxiliarOrigin) #Identificador del Auxiliar Origen o Propio Módulo Contabilidad
+    accountId = models.ForeignKey(AccountingAccounts)
+    movementTypeId = models.ForeignKey(MovementTypes)
+    datetime = models.DateField()
+    amount = models.DecimalField(max_digits=5, decimal_places=2)
+    state = models.BooleanField(bool)
 
 
-
-
-
-
+class Majorization(models.Model):
+    accountId = models.CharField(max_length=30)
+    majorAccountId = models.ForeignKey(AccountingAccounts)
+    movementTypeId = models.ForeignKey(MovementTypes)
+    datetime = models.DateField()
+    balance = models.DecimalField(max_digits=5, decimal_places=2)
+    state = models.BooleanField(bool)

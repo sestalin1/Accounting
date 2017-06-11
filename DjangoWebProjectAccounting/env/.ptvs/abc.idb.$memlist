@@ -1,7 +1,8 @@
+abstractstaticmethod
 abstractmethod
-_InstanceType
+ABC
+get_cache_token
 abstractproperty
 WeakSet
-types
 ABCMeta
-_C
+abstractclassmethod

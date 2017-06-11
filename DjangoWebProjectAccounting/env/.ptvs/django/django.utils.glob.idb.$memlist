@@ -1,7 +1,6 @@
-six
 glob_escape
+_magic_check
+six
 unicode_literals
 os
-escape
-_magic_check
 re

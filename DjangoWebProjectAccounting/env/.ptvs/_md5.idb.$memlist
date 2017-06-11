@@ -1,7 +1,8 @@
+BuiltinImporter
 MD5Type
 __doc__
+__loader__
 __name__
 __package__
-digest_size
+__spec__
 md5
-new

@@ -4,7 +4,7 @@ forms
 views
 geos
 serializers
-geometry
+geoip
 default_app_config
 db
 shortcuts
@@ -12,8 +12,8 @@ gdal
 utils
 geoip2
 ptr
+geometry
 admin
-geoip
 measure
 sitemaps
 management

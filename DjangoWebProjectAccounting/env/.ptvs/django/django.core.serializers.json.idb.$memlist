@@ -2,6 +2,7 @@ sys
 unicode_literals
 DeserializationError
 Deserializer
+CallableBool
 Promise
 six
 PythonSerializer

@@ -45,8 +45,8 @@ ProtectedError
 Variance
 QuerySet
 proxy
-OneToOneField
 OneToOneRel
+OneToOneField
 SlugField
 warnings
 StdDev
@@ -135,7 +135,6 @@ ForeignObject
 fields
 query
 GeoAggregate
-x
 decimal
 query_utils
 RegisterLookupMixin

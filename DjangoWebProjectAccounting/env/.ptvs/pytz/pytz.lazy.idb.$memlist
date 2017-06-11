@@ -1,7 +1,6 @@
-LazySet
-_fill_lock
-LazyList
 RLock
-prop
-DictMixin
+LazySet
 LazyDict
+DictMixin
+LazyList
+_fill_lock

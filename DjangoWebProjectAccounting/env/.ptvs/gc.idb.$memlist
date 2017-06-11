@@ -1,13 +1,15 @@
+BuiltinImporter
 DEBUG_COLLECTABLE
-DEBUG_INSTANCES
 DEBUG_LEAK
-DEBUG_OBJECTS
 DEBUG_SAVEALL
 DEBUG_STATS
 DEBUG_UNCOLLECTABLE
 __doc__
+__loader__
 __name__
 __package__
+__spec__
+callbacks
 collect
 disable
 enable
@@ -17,6 +19,7 @@ get_debug
 get_objects
 get_referents
 get_referrers
+get_stats
 get_threshold
 is_tracked
 isenabled

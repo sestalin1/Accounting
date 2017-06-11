@@ -9,7 +9,6 @@ static_finders_changed
 receiver
 six
 apps
-update_connections_time_zone
 language_changed
 reset_template_engines
 COMPLEX_OVERRIDE_SETTINGS

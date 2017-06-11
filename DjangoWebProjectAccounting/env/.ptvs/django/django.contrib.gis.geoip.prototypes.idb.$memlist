@@ -6,7 +6,6 @@ GeoIP_delete
 GeoIP_country_code_by_name
 GeoIP_record_by_addr
 record_output
-ctype
 check_record
 GeoIP_open
 free
@@ -23,7 +22,6 @@ GeoIP_record_by_name
 geoip_encodings
 GeoIPRecord
 GeoIPTag
-name
 string_at
 GeoIP_country_name_by_addr
 lgeoip

@@ -35,7 +35,7 @@ time_format
 register
 last
 wrap
-safeseq
+urlencode
 ljust
 special_floats
 join
@@ -85,7 +85,7 @@ dictsortreversed
 _urlize
 InvalidOperation
 force_escape
-urlencode
+safeseq
 pluralize
 ROUND_HALF_UP
 mark_for_escaping

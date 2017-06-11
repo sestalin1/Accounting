@@ -1,13 +1,13 @@
 DeclarativeFieldsMetaclass
-formats
+Select
 MultipleChoiceField
 ModelChoiceField
 BooleanField
 URLField
 ValidationError
 ClearableFileInput
+MultiLineStringField
 formsets
-ModelFormMetaclass
 RenameWidgetMethods
 SelectMultiple
 cached_property
@@ -81,7 +81,7 @@ PointField
 OpenLayersWidget
 capfirst
 ALL_FIELDS
-Select
+formats
 chain
 FileInput
 BaseGeometryWidget
@@ -89,7 +89,7 @@ conditional_escape
 modelformset_factory
 MultiPolygonField
 ChoiceWidget
-MultiLineStringField
+ModelFormMetaclass
 ManagementForm
 mark_safe
 FloatField

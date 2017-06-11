@@ -26,7 +26,6 @@ router
 proxy
 SlugField
 warnings
-x
 collections
 RegisterLookupMixin
 forms

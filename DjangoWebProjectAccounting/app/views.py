@@ -6,6 +6,11 @@ from django.shortcuts import render
 from django.http import HttpRequest
 from django.template import RequestContext
 from datetime import datetime
+from .models import *
+from .forms import *
+from django.template.loader import render_to_string
+from django.http import JsonResponse
+from django.shortcuts import render, get_object_or_404
 
 def home(request):
     """Renders the home page."""
@@ -44,3 +49,57 @@ def about(request):
             'year':datetime.now().year,
         }
     )
+
+def accountingAccounts(request):
+    accounts = AccountingAccounts.objects.all()
+    return render(request, 'app/accountingAccounts.html', {'accounts': accounts})
+
+
+def save_account_form(request, form, template_name):
+    data = dict()
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            data['form_is_valid'] = True
+            accounts = account.objects.all()
+            data['html_account_list'] = render_to_string('app/accountingAccountsPartial.html', {
+                'accounts': accounts
+            })
+        else:
+            data['form_is_valid'] = False
+    context = {'form': form}
+    data['html_form'] = render_to_string(template_name, context, request=request)
+    return JsonResponse(data)
+
+
+def accountingAccountsCreate(request):
+    if request.method == 'POST':
+        form = AccountingAccountsForm(request.POST)
+    else:
+        form = AccountingAccountsForm()
+    return save_account_form(request, form, 'app/accountingAccountsCreatePartial.html')
+
+
+def accountingAccountsUpdate(request, pk):
+    account = get_object_or_404(accountingAccounts, pk=pk)
+    if request.method == 'POST':
+        form = AccountingAccountsForm(request.POST, instance=account)
+    else:
+        form = accountForm(instance=account)
+    return save_account_form(request, form, 'app/accountingAccountsUpdatePartial.html')
+
+
+def accountingAccountsDelete(request, pk):
+    account = get_object_or_404(accountingAccounts, pk=pk)
+    data = dict()
+    if request.method == 'POST':
+        account.delete()
+        data['form_is_valid'] = True
+        accounts = account.objects.all()
+        data['html_account_list'] = render_to_string('app/accountingAccountsPartial.html', {
+            'accounts': accounts
+        })
+    else:
+        context = {'account': account}
+        data['html_form'] = render_to_string('app/accountingAccountsDeletePartial.html', context, request=request)
+    return JsonResponse(data)

@@ -3,6 +3,7 @@ BufferedRWPair
 BufferedRandom
 BufferedReader
 BufferedWriter
+BuiltinImporter
 BytesIO
 DEFAULT_BUFFER_SIZE
 FileIO
@@ -14,7 +15,10 @@ _BufferedIOBase
 _IOBase
 _RawIOBase
 _TextIOBase
+_WindowsConsoleIO
 __doc__
+__loader__
 __name__
 __package__
+__spec__
 open

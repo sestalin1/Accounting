@@ -1,8 +1,11 @@
+BuiltinImporter
 Error
 Incomplete
 __doc__
+__loader__
 __name__
 __package__
+__spec__
 a2b_base64
 a2b_hex
 a2b_hqx

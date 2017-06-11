@@ -1,8 +1,8 @@
 codecs
-decoding_map
 IncrementalDecoder
-encoding_map
+encoding_table
 IncrementalEncoder
+decoding_table
 getregentry
 StreamWriter
 StreamReader

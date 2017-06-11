@@ -1,9 +1,12 @@
-updatecache
+lazycache
+os
 getline
-getlines
+__all__
 cache
 checkcache
-os
-__all__
+tokenize
+updatecache
+functools
+getlines
 sys
 clearcache

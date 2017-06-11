@@ -1,12 +1,17 @@
+BuiltinImporter
 __doc__
+__loader__
 __name__
 __package__
+__spec__
+_forget_codec
 ascii_decode
 ascii_encode
-charbuffer_encode
 charmap_build
 charmap_decode
 charmap_encode
+code_page_decode
+code_page_encode
 decode
 encode
 escape_decode
@@ -17,6 +22,8 @@ lookup
 lookup_error
 mbcs_decode
 mbcs_encode
+oem_decode
+oem_encode
 raw_unicode_escape_decode
 raw_unicode_escape_encode
 readbuffer_encode

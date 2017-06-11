@@ -1,13 +1,14 @@
+BuiltinImporter
 Struct
-_PY_STRUCT_FLOAT_COERCE
-_PY_STRUCT_RANGE_CHECKING
 __doc__
+__loader__
 __name__
 __package__
-__version__
+__spec__
 _clearcache
 calcsize
 error
+iter_unpack
 pack
 pack_into
 unpack

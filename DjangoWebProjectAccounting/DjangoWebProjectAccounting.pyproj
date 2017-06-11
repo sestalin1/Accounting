@@ -4,21 +4,22 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <Name>DjangoWebProjectAccounting</Name>
     <RootNamespace>DjangoWebProjectAccounting</RootNamespace>
-    <InterpreterId>{d22567bd-40bf-4049-88b8-4d554c771085}</InterpreterId>
-    <InterpreterVersion>2.7</InterpreterVersion>
+    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>99e6fc18-9634-4eb1-82c0-13f342bc84a8</ProjectGuid>
+    <ProjectGuid>7b0ff845-5735-4304-9319-c9ce00b12d21</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <ProjectTypeGuids>{5F0BE9CA-D677-4A4D-8806-6076C0FAAD37};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
     <StartupFile>manage.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
+    <WebBrowserUrl>http://localhost</WebBrowserUrl>
     <LaunchProvider>Django launcher</LaunchProvider>
     <OutputPath>.</OutputPath>
+    <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -54,6 +55,14 @@
     <Folder Include="DjangoWebProjectAccounting\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\static\app\scripts\accounting.js" />
+    <Content Include="app\templates\app\accountingAccountsParcial.html" />
+    <Content Include="app\templates\app\accountingAccountsCreatePartial.html" />
+    <Content Include="app\templates\app\accountingAccounts.html" />
+    <Content Include="app\templates\app\accountingAccountsFormPartial.html" />
+    <Content Include="app\templates\app\accountingAccountsUpdatePartial.html" />
+    <Content Include="app\templates\app\layout - Copy.html" />
+    <Content Include="app\templates\app\accountingAccountsDeletePartial.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\bootstrap.css" />
@@ -86,21 +95,19 @@
     <Content Include="app\templates\app\loginpartial.html" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="readme.mht">
+    <None Include="readme.html">
       <SubType>WebBrowser</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="env\">
-      <Id>{d22567bd-40bf-4049-88b8-4d554c771085}</Id>
-      <BaseInterpreter>{9a7a9026-48c1-4688-9d5d-e5699d47d074}</BaseInterpreter>
-      <Version>2.7</Version>
-      <Description>env (Python 64-bit 2.7)</Description>
+      <Id>env</Id>
+      <Version>3.6</Version>
+      <Description>env (Python 3.6 (64-bit))</Description>
       <InterpreterPath>Scripts\python.exe</InterpreterPath>
       <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
-      <LibraryPath>Lib\</LibraryPath>
       <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
-      <Architecture>Amd64</Architecture>
+      <Architecture>X64</Architecture>
     </Interpreter>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />

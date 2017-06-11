@@ -1,5 +1,5 @@
 chain
-formats
+Select
 MultipleChoiceField
 BooleanField
 RenameWidgetMethods
@@ -77,7 +77,7 @@ boundfield
 ErrorList
 INITIAL_FORM_COUNT
 ALL_FIELDS
-Select
+formats
 DeclarativeFieldsMetaclass
 FileInput
 ModelChoiceField
@@ -91,9 +91,9 @@ URLField
 conditional_escape
 datetime_safe
 ungettext
-settings
-SplitDateTimeWidget
 python_2_unicode_compatible
+SplitDateTimeWidget
+settings
 BaseInlineFormSet
 modelform_defines_fields
 MIN_NUM_FORM_COUNT

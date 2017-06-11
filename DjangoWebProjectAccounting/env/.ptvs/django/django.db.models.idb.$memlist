@@ -10,7 +10,7 @@ URLField
 SET_NULL
 indexes_all
 DictWrapper
-python_2_unicode_compatible
+connection
 ExpressionWrapper
 connections
 force_bytes
@@ -87,7 +87,7 @@ warn_about_renamed_method
 FloatField
 manager
 Case
-connection
+python_2_unicode_compatible
 Expression
 DecimalField
 BinaryField
@@ -121,7 +121,6 @@ FileField
 fields
 OneToOneField
 query
-x
 decimal
 query_utils
 smart_text

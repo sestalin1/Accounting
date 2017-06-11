@@ -1,6 +1,7 @@
 migrations
 management
 default_app_config
+_authenticate_with_backend
 BACKEND_SESSION_KEY
 tokens
 update_session_auth_hash
@@ -39,7 +40,6 @@ LANGUAGE_SESSION_KEY
 get_user_model
 handlers
 login
-tests
 ImproperlyConfigured
 get_user
 get_permission_codename
