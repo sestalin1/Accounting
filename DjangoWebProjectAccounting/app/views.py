@@ -1,8 +1,11 @@
 """
 Definition of views.
 """
-
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from django.shortcuts import render
+from django.conf import settings
+from django.shortcuts import redirect
 from django.http import HttpRequest
 from django.template import RequestContext
 from datetime import datetime
@@ -11,6 +14,8 @@ from .forms import *
 from django.template.loader import render_to_string
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
+
+
 
 def home(request):
     """Renders the home page."""
@@ -50,18 +55,24 @@ def about(request):
         }
     )
 
+
+@login_required
 def accountingAccounts(request):
-    accounts = AccountingAccounts.objects.all()
-    return render(
+   #if not request.user.is_authenticated:
+   #     return redirect(settings.LOGIN_URL, request.path)
+  # else:
+        accounts = AccountingAccounts.objects.all()
+        return render(
         request ,
         'app/accountingAccounts.html' ,
         {
+            'title':'Cuentas Contables',
             'accounts': accounts,
             'year':datetime.now().year,
          }
    )
 
-
+@login_required
 def save_account_form(request, form, template_name):
     data = dict()
     if request.method == 'POST':
@@ -78,7 +89,7 @@ def save_account_form(request, form, template_name):
     data['html_form'] = render_to_string(template_name, context, request=request)
     return JsonResponse(data)
 
-
+@login_required
 def accountingAccountsCreate(request):
     if request.method == 'POST':
         form = AccountingAccountsForm(request.POST)
@@ -86,7 +97,7 @@ def accountingAccountsCreate(request):
         form = AccountingAccountsForm()
     return save_account_form(request, form, 'app/accountingAccountsCreatePartial.html')
 
-
+@login_required
 def accountingAccountsUpdate(request, pk):
     account = get_object_or_404(accountingAccounts, pk=pk)
     if request.method == 'POST':
@@ -95,7 +106,7 @@ def accountingAccountsUpdate(request, pk):
         form = AccountingAccountsForm(instance=account)
     return save_account_form(request, form, 'app/accountingAccountsUpdatePartial.html')
 
-
+@login_required
 def accountingAccountsDelete(request, pk):
     account = get_object_or_404(accountingAccounts, pk=pk)
     data = dict()

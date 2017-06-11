@@ -37,7 +37,7 @@ urlpatterns = [
             'next_page': '/',
         },
         name='logout'),
-    url(r'^accountingAccounts$', app.views.accountingAccounts, name='accountingAccounts'),
+    url(r'^accountingAccounts/$', app.views.accountingAccounts, name='accountingAccounts'),
     url(r'^accountingAccounts/create/$', app.views.accountingAccountsCreate, name='accountingAccountsCreate'),
     url(r'^accountingAccounts/(?P<pk>\d+)/update/$', app.views.accountingAccountsUpdate, name='accountingAccountsUpdate'),
     url(r'^accountingAccounts/(?P<pk>\d+)/delete/$', app.views.accountingAccountsDelete, name='accountingAccountsDelete'),

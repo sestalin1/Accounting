@@ -1,0 +1,25 @@
+﻿<nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand">ACCOUNTING</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                {% if user.is_authenticated %}
+                <ul class="nav navbar-nav">
+                  
+                    <li {% if request.path == '/accountingAccounts/' or request.path == '/'  %} class="active"{% endif %}>
+                    <a href="{% url 'accountingAccounts' %}">Cuentas Contable</a></li>
+                    <li><a href="{% url 'home' %}">Tipos de Cuenta</a></li>
+                    <li><a href="{% url 'home' %}">Tipos de Moneda</a></li>
+                    <li><a href="{% url 'home' %}">Entradas contable</a></li>
+                </ul>
+                {% endif %}
+                {% include 'app/loginpartial.html' %}
+            </div>
+        </div>
+    </nav>

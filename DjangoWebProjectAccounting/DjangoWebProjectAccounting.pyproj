@@ -61,6 +61,7 @@
     <Content Include="app\templates\app\accountingAccounts.html" />
     <Content Include="app\templates\app\accountingAccountsFormPartial.html" />
     <Content Include="app\templates\app\accountingAccountsUpdatePartial.html" />
+    <Content Include="app\templates\app\header.html" />
     <Content Include="app\templates\app\layout - Copy.html" />
     <Content Include="app\templates\app\accountingAccountsDeletePartial.html" />
     <Content Include="requirements.txt" />
