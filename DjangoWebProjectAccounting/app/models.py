@@ -37,7 +37,6 @@ class MovementTypes (models.Model):
     description = models.CharField(max_length=30)
 
 
-
 class CurrencyTypes (models.Model):
     lavelId = models.CharField(max_length=5)
     description = models.CharField(max_length=20)
