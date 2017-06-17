@@ -1,6 +1,6 @@
 {% for E in accountingAccounts %}
         <tr>
-          <td>{{ E.char }}</td>
+          <td>{{ E.id }}</td>
           <td>{{ E.description }}</td>
           <td>{{ E.accountTypeId }}</td>
           <td>{{ E.allowsTransactions }}</td>
@@ -10,7 +10,7 @@
           <td>{{ E.state }}</td>
           <td style="width: 150px">
             <button type="button"
-              class="btn btn-warning btn-sm js-update-book"
+              class="btn btn-warning btn-sm js-update-account"
               data-url="{% url 'accountingAccountsUpdateParcial' E.id %}">
              <span class="glyphicon glyphicon-pencil"></span> Editar
             </button>

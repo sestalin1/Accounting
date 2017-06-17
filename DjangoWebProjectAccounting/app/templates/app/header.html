@@ -14,7 +14,8 @@
                   
                     <li {% if request.path == '/accountingAccounts/' or request.path == '/'  %} class="active"{% endif %}>
                     <a href="{% url 'accountingAccounts' %}">Cuentas Contable</a></li>
-                    <li><a href="{% url 'home' %}">Tipos de Cuenta</a></li>
+                    <li {% if request.path == '/accountTypes/'  %} class="active"{% endif %}>
+                    <a href="{% url 'accountTypes' %}">Tipos de Cuenta</a></li>
                     <li><a href="{% url 'home' %}">Tipos de Moneda</a></li>
                     <li><a href="{% url 'home' %}">Entradas contable</a></li>
                 </ul>

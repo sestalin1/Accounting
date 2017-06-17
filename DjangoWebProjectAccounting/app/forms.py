@@ -21,5 +21,100 @@ class BootstrapAuthenticationForm(AuthenticationForm):
 class AccountingAccountsForm(forms.ModelForm):
     class Meta:
         model = AccountingAccounts
-        fields = ('char', 'description', 'accountTypeId', 'allowsTransactions', 'level', 'majorAccount','balance','state', )
+        fields = (
+            'id', 
+            'description', 
+            'accountTypeId', 
+            'allowsTransactions', 
+            'level', 
+            'majorAccount',
+            #'balance',
+            'state',
+           )
+
+class SettingsForm(forms.ModelForm):
+    class Meta:
+        model = Settings
+        fields = (
+            'id', 
+            'year', 
+            'month', 
+            'majorizationProcessed', 
+            'companyRNC', 
+            'taxClosingMonth', 
+           )
         
+class LevelsForm(forms.ModelForm):
+    class Meta:
+        model = Levels
+        fields = (
+            'id',
+            'description', 
+           )
+
+class AccountTypesForm(forms.ModelForm):
+    class Meta:
+        model = AccountTypes
+        fields = (
+            'id', 
+            'description', 
+            'origin',
+            'state',
+           )
+
+class MovementTypesForm(forms.ModelForm):
+    class Meta:
+        model = MovementTypes
+        fields = (
+            'id', 
+            'description', 
+           )
+
+class CurrencyTypesForm(forms.ModelForm):
+    class Meta:
+        model = CurrencyTypes
+        fields = (
+            'iso', 
+            'code', 
+            'symbol', 
+            'description', 
+            'lastExchangeRate',
+            'state',
+           )
+        
+class AuxiliarOriginForm(forms.ModelForm):
+    class Meta:
+        model = AuxiliarOrigin
+        fields = (
+            'id', 
+            'description', 
+           )
+        
+class AccountingEntryForm(forms.ModelForm):
+    class Meta:
+        model = AccountingEntry
+        fields = (
+            'id', 
+            'description', 
+            'auxiliarOriginId', 
+            'accountId', 
+            'movementTypeId', 
+            'datetime',
+            'amount',
+            'state',
+           )
+        
+class MajorizationForm(forms.ModelForm):
+    class Meta:
+        model = Majorization
+        fields = (
+            'id', 
+            'accountId', 
+            'majorAccountId', 
+            'movementTypeId', 
+            'datetime', 
+            'balance',
+            'state',
+           )
+
+

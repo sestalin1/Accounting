@@ -1,6 +1,7 @@
+/* accounting */
 $(function () {
 
-  /* Functions */
+  /* functions */
 
   var loadForm = function () {
     var btn = $(this);
@@ -40,16 +41,19 @@ $(function () {
 
   /* Binding */
 
-  // Create account
+  // Create
   $(".js-create-account").click(loadForm);
   $("#modal-account").on("submit", ".js-account-create-form", saveForm);
 
-  // Update account
+  // Update 
   $("#account-table").on("click", ".js-update-account", loadForm);
   $("#modal-account").on("submit", ".js-account-update-form", saveForm);
 
-  // Delete account
+  // Delete 
   $("#account-table").on("click", ".js-delete-account", loadForm);
   $("#modal-account").on("submit", ".js-account-delete-form", saveForm);
+
+
+
 
 });

@@ -1,0 +1,38 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+
+  <h1 class="page-header">{{ title }}</h1>
+
+<p>
+    <button type="button" class="btn btn-primary js-create-account" data-url="{% url 'accountingAccountsCreate' %}">
+      <span class="glyphicon glyphicon-plus"></span>
+      Crear Cuenta
+    </button>
+  </p>
+
+  <table class="table" id="account-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Descripci&oacute;n</th>
+        <th>Tipo de Cuenta</th>
+        <th>Permite Transacciones</th>
+        <th>Nivel</th>
+        <th>Cuenta Mayor</th>
+        <th>Balance</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% include 'app/accountingAccountsParcial.html' %}
+     </table>
+ <div class="modal fade" id="modal-account">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+      </div>
+    </div>
+  </div>
+{% endblock %}

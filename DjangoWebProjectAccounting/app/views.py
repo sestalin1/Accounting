@@ -17,6 +17,7 @@ from django.shortcuts import render, get_object_or_404
 
 
 
+
 def home(request):
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
@@ -100,7 +101,7 @@ def accountingAccountsCreate(request):
 
 @login_required
 def accountingAccountsUpdate(request, pk):
-    account = get_object_or_404(accountingAccounts, pk=pk)
+    account = get_object_or_404(AccountingAccounts, pk=pk)
     if request.method == 'POST':
         form = AccountingAccountsForm(request.POST, instance=account)
     else:
@@ -109,7 +110,7 @@ def accountingAccountsUpdate(request, pk):
 
 @login_required
 def accountingAccountsDelete(request, pk):
-    account = get_object_or_404(accountingAccounts, pk=pk)
+    account = get_object_or_404(AccountingAccounts, pk=pk)
     data = dict()
     if request.method == 'POST':
         account.delete()
@@ -166,7 +167,7 @@ def settingsCreate(request):
 
 @login_required
 def settingsUpdate(request, pk):
-    settings = get_object_or_404(settings, pk=pk)
+    settings = get_object_or_404(Settings, pk=pk)
     if request.method == 'POST':
         form = SettingsForm(request.POST, instance=settings)
     else:
@@ -175,7 +176,7 @@ def settingsUpdate(request, pk):
 
 @login_required
 def settingsDelete(request, pk):
-    settings = get_object_or_404(settings, pk=pk)
+    settings = get_object_or_404(Settings, pk=pk)
     data = dict()
     if request.method == 'POST':
         settings.delete()
@@ -232,16 +233,16 @@ def levelsCreate(request):
 
 @login_required
 def levelsUpdate(request, pk):
-    levels = get_object_or_404(levels, pk=pk)
+    levels = get_object_or_404(Levels, pk=pk)
     if request.method == 'POST':
-        form = levelsForm(request.POST, instance=levels)
+        form = LevelsForm(request.POST, instance=levels)
     else:
-        form = levelsForm(instance=levels)
+        form = LevelsForm(instance=levels)
     return save_levels_form(request, form, 'app/levelsUpdatePartial.html')
 
 @login_required
 def levelsDelete(request, pk):
-    levels = get_object_or_404(levels, pk=pk)
+    levels = get_object_or_404(Levels, pk=pk)
     data = dict()
     if request.method == 'POST':
         levels.delete()
@@ -298,16 +299,16 @@ def accountTypesCreate(request):
 
 @login_required
 def accountTypesUpdate(request, pk):
-    accountTypes = get_object_or_404(accountTypes, pk=pk)
+    accountTypes = get_object_or_404(AccountTypes, pk=pk)
     if request.method == 'POST':
-        form = accountTypesForm(request.POST, instance=accountTypes)
+        form = AccountTypesForm(request.POST, instance=accountTypes)
     else:
-        form = accountTypesForm(instance=accountTypes)
+        form = AccountTypesForm(instance=accountTypes)
     return save_accountTypes_form(request, form, 'app/accountTypes.html')
 
 @login_required
 def accountTypesDelete(request, pk):
-    accountTypes = get_object_or_404(accountTypes, pk=pk)
+    accountTypes = get_object_or_404(AccountTypes, pk=pk)
     data = dict()
     if request.method == 'POST':
         accountTypes.delete()
@@ -364,7 +365,7 @@ def movementTypesCreate(request):
 
 @login_required
 def movementTypesUpdate(request, pk):
-    account = get_object_or_404(movementTypes, pk=pk)
+    account = get_object_or_404(MovementTypes, pk=pk)
     if request.method == 'POST':
         form = MovementTypesForm(request.POST, instance=movementTypes)
     else:
@@ -373,7 +374,7 @@ def movementTypesUpdate(request, pk):
 
 @login_required
 def movementTypesDelete(request, pk):
-    movementTypes = get_object_or_404(movementTypes, pk=pk)
+    movementTypes = get_object_or_404(MovementTypes, pk=pk)
     data = dict()
     if request.method == 'POST':
         movementTypes.delete()
@@ -429,7 +430,7 @@ def currencyTypesCreate(request):
 
 @login_required
 def currencyTypesUpdate(request, pk):
-    currencyTypes = get_object_or_404(currencyTypes, pk=pk)
+    currencyTypes = get_object_or_404(CurrencyTypes, pk=pk)
     if request.method == 'POST':
         form = CurrencyTypesForm(request.POST, instance=currencyTypes)
     else:
@@ -438,7 +439,7 @@ def currencyTypesUpdate(request, pk):
 
 @login_required
 def currencyTypesDelete(request, pk):
-    currencyTypes = get_object_or_404(currencyTypes, pk=pk)
+    currencyTypes = get_object_or_404(CurrencyTypes, pk=pk)
     data = dict()
     if request.method == 'POST':
         currencyTypes.delete()
@@ -494,7 +495,7 @@ def auxiliarOriginCreate(request):
 
 @login_required
 def auxiliarOriginUpdate(request, pk):
-    auxiliarOrigin = get_object_or_404(auxiliarOrigin, pk=pk)
+    auxiliarOrigin = get_object_or_404(AuxiliarOrigin, pk=pk)
     if request.method == 'POST':
         form = AuxiliarOriginForm(request.POST, instance=auxiliarOrigin)
     else:
@@ -503,7 +504,7 @@ def auxiliarOriginUpdate(request, pk):
 
 @login_required
 def auxiliarOriginDelete(request, pk):
-    auxiliarOrigin = get_object_or_404(auxiliarOrigin, pk=pk)
+    auxiliarOrigin = get_object_or_404(AuxiliarOrigin, pk=pk)
     data = dict()
     if request.method == 'POST':
         auxiliarOrigin.delete()
@@ -560,7 +561,7 @@ def accountingEntryCreate(request):
 
 @login_required
 def accountingEntryUpdate(request, pk):
-    accountingEntry = get_object_or_404(accountingEntry, pk=pk)
+    accountingEntry = get_object_or_404(AccountingEntry, pk=pk)
     if request.method == 'POST':
         form = AccountingEntryForm(request.POST, instance=accountingEntry)
     else:
@@ -569,7 +570,7 @@ def accountingEntryUpdate(request, pk):
 
 @login_required
 def accountingEntryDelete(request, pk):
-    accountingEntry = get_object_or_404(accountingEntry, pk=pk)
+    accountingEntry = get_object_or_404(AccountingEntry, pk=pk)
     data = dict()
     if request.method == 'POST':
         accountingEntry.delete()
@@ -625,7 +626,7 @@ def majorizationCreate(request):
 
 @login_required
 def majorizationUpdate(request, pk):
-    majorization = get_object_or_404(majorization, pk=pk)
+    majorization = get_object_or_404(Majorization, pk=pk)
     if request.method == 'POST':
         form = MajorizationForm(request.POST, instance=majorization)
     else:
@@ -634,7 +635,7 @@ def majorizationUpdate(request, pk):
 
 @login_required
 def majorizationDelete(request, pk):
-    majorization = get_object_or_404(majorization, pk=pk)
+    majorization = get_object_or_404(Majorization, pk=pk)
     data = dict()
     if request.method == 'POST':
         majorization.delete()

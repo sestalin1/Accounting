@@ -1,0 +1,25 @@
+{% for E in accountTypes %}
+        <tr>
+          <td>{{ E.id }}</td>
+          <td>{{ E.description }}</td>
+          <td>{{ E.origin }}</td>
+          <td>{{ E.state }}</td>
+          <td style="width: 150px">
+            <button type="button"
+              class="btn btn-warning btn-sm js-update-accountType"
+              data-url="{% url 'accountTypesUpdate' E.id %}">
+             <span class="glyphicon glyphicon-pencil"></span> Editar
+            </button>
+            <button type="button"
+              class="btn btn-danger btn-sm js-delete-accountType"
+              data-url="{% url 'accountTypesDelete' E.id %}">
+            <span class="glyphicon glyphicon-trash"></span> Eliminar
+            </button>
+           </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="8" class="text-center bg-warning">No hay Tipos de Cuenta</td>
+        </tr>
+      {% endfor %}
+   

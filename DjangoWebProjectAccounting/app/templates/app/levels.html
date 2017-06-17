@@ -1,0 +1,33 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+
+  <h1 class="page-header">{{ title }}</h1>
+
+<p>
+    <button type="button" class="btn btn-primary js-create-level" data-url="{% url 'levelsCreate' %}">
+      <span class="glyphicon glyphicon-plus"></span>
+      Nuevo Nivel
+    </button>
+  </p>
+
+  <table class="table" id="level-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Descripci&oacute;n</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% include 'app/levelsParcial.html' %}
+     </table>
+ <div class="modal fade" id="modal-level">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+      </div>
+    </div>
+  </div>
+{% endblock %}
