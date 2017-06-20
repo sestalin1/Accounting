@@ -81,7 +81,7 @@ def save_account_form(request, form, template_name):
         if form.is_valid():
             form.save()
             data['form_is_valid'] = True
-            accounts = AccountingAccountsForm.objects.all()
+            accounts = AccountingAccounts.objects.all()
             data['html_account_list'] = render_to_string('app/accountingAccountsPartial.html', {
                 'accounts': accounts
             })
@@ -299,21 +299,21 @@ def accountTypesCreate(request):
 
 @login_required
 def accountTypesUpdate(request, pk):
-    accountTypes = get_object_or_404(AccountTypes, pk=pk)
+    accountType = get_object_or_404(AccountTypes, pk=pk)
     if request.method == 'POST':
-        form = AccountTypesForm(request.POST, instance=accountTypes)
+        form = AccountTypesForm(request.POST, instance=accountType)
     else:
-        form = AccountTypesForm(instance=accountTypes)
+        form = AccountTypesForm(instance=accountType)
     return save_accountTypes_form(request, form, 'app/accountTypes.html')
 
 @login_required
 def accountTypesDelete(request, pk):
-    accountTypes = get_object_or_404(AccountTypes, pk=pk)
+    accountType = get_object_or_404(AccountTypes, pk=pk)
     data = dict()
     if request.method == 'POST':
-        accountTypes.delete()
+        accountType.delete()
         data['form_is_valid'] = True
-        accountTypes = AccountTypes.objects.all()
+        accountType = AccountTypes.objects.all()
         data['html_accountTypes_list'] = render_to_string('app/accountTypesPartial.html', {
             'accountTypes': accountTypes
         })

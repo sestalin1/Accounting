@@ -7,6 +7,9 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.utils.translation import ugettext_lazy as _
 from .models import *
 
+
+
+
 class BootstrapAuthenticationForm(AuthenticationForm):
     """Authentication form which uses boostrap CSS."""
     username = forms.CharField(max_length=254,
@@ -19,18 +22,23 @@ class BootstrapAuthenticationForm(AuthenticationForm):
                                    'placeholder':'Password'}))
 
 class AccountingAccountsForm(forms.ModelForm):
+    
     class Meta:
         model = AccountingAccounts
+         
         fields = (
-            'id', 
+            #'id', 
+            'name', 
             'description', 
             'accountTypeId', 
             'allowsTransactions', 
             'level', 
             'majorAccount',
-            #'balance',
+            'balance',
             'state',
-           )
+           
+ )
+        #accountTypeId = CustomModelChoiceField(queryset=AccountTypes.objects.all())
 
 class SettingsForm(forms.ModelForm):
     class Meta:
@@ -66,7 +74,7 @@ class MovementTypesForm(forms.ModelForm):
     class Meta:
         model = MovementTypes
         fields = (
-            'id', 
+            
             'description', 
            )
 
@@ -116,5 +124,4 @@ class MajorizationForm(forms.ModelForm):
             'balance',
             'state',
            )
-
 

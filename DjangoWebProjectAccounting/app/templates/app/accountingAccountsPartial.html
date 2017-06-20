@@ -1,0 +1,30 @@
+{% for E in accounts %}
+        <tr>
+          <td>{{ E.id }}</td>
+          <td>{{ E.name }}</td>
+          <td>{{ E.description }}</td>
+          <td>{{ E.accountTypeId }}</td>
+          <td>{{ E.allowsTransactions }}</td>
+          <td>{{ E.level }}</td>
+          <td>{{ E.majorAccount }}</td>
+          <td>{{ E.balance }}</td>
+          <td>{{ E.state }}</td>
+          <td style="width: 150px">
+            <button type="button"
+              class="btn btn-warning btn-sm js-update-account"
+              data-url="{% url 'accountingAccountsUpdate' E.id %}">
+             <span class="glyphicon glyphicon-pencil"></span> Editar
+            </button>
+            <button type="button"
+              class="btn btn-danger btn-sm js-delete-account"
+              data-url="{% url 'accountingAccountsDelete' E.id %}">
+            <span class="glyphicon glyphicon-trash"></span> Eliminar
+            </button>
+           </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="8" class="text-center bg-warning">No hay Cuentas</td>
+        </tr>
+      {% endfor %}
+   

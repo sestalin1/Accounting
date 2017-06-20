@@ -21,18 +21,32 @@ class Levels (models.Model):
 class AccountTypes (models.Model):
     id = models.AutoField('ID', primary_key=True)
     description = models.CharField('Descripción',max_length=30)
-    origin = models.CharField('Origen',max_length=2) # DB to CR
+    origin = models.CharField('Origen',max_length=3,choices=(('DB','Debito'),('CR','Credito'))) # DB to CR
     state = models.BooleanField('Activo?')
 
+    
+
 class AccountingAccounts (models.Model):
-    id = models.CharField('ID',max_length=20, primary_key=True)
+    id = models.AutoField('ID', primary_key=True)
+    name = models.CharField('Nombre',max_length=20)
     description = models.CharField('Descripción',max_length=30)
-    accountTypeId = models.ForeignKey(AccountTypes)
+    accountTypeId = models.ForeignKey(AccountTypes,on_delete=models.CASCADE,verbose_name='Tipo de uenta')
     allowsTransactions = models.BooleanField('Permitir Transacciones?')
     level = models.PositiveSmallIntegerField('Nivel',choices=((1,'1'),(2,'2'),(3,'3'),(4,'4'),(5,'5'),(6,'6'))) # 1 to 6
-    majorAccount = models.ForeignKey('self',default='',verbose_name="Cuenta Major", blank=True)
-    balance = models.DecimalField('Balance',max_digits=5, decimal_places=2,default=0)
+    majorAccount = models.ForeignKey('self',default='',verbose_name="Cuenta Major", blank=True, null=True)
+    balance = models.DecimalField('Balance',max_digits=9, decimal_places=2,default=0)
     state = models.BooleanField('Activo?')
+    
+#class AccountingAccountsAdmin(admin.ModelAdmin):
+ #   model = AccountingAccounts
+  #  list_display = ['name', 
+   #         'description', 
+    #        'accountTypeId', 
+     #       'allowsTransactions', 
+      #      'level', 
+       #     'majorAccount',
+        #    'balance',
+         #   'state', ]
 
 
 class MovementTypes (models.Model):

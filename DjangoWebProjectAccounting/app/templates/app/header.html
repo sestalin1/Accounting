@@ -16,8 +16,16 @@
                     <a href="{% url 'accountingAccounts' %}">Cuentas Contable</a></li>
                     <li {% if request.path == '/accountTypes/'  %} class="active"{% endif %}>
                     <a href="{% url 'accountTypes' %}">Tipos de Cuenta</a></li>
-                    <li><a href="{% url 'home' %}">Tipos de Moneda</a></li>
-                    <li><a href="{% url 'home' %}">Entradas contable</a></li>
+                    <li {% if request.path == '/currencyTypes/'  %} class="active"{% endif %}>
+                    <a href="{% url 'currencyTypes' %}">Tipos de Moneda</a></li>
+                    <li {% if request.path == '/settings/'  %} class="active"{% endif %}>
+                    <a href="{% url 'settings' %}">Configuraciones</a></li>
+                    <li {% if request.path == '/movementTypes/'  %} class="active"{% endif %}>
+                    <a href="{% url 'movementTypes' %}">Tipos de movimientos</a></li>
+                    <li {% if request.path == '/accountingEntry/'  %} class="active"{% endif %}>
+                    <a href="{% url 'accountingEntry' %}">Entradas contable</a></li>
+                    <li {% if request.path == '/majorization/'  %} class="active"{% endif %}>
+                    <a href="{% url 'majorization' %}">Mayorizacion</a></li>
                 </ul>
                 {% endif %}
                 {% include 'app/loginpartial.html' %}

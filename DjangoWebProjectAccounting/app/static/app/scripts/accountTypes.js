@@ -27,6 +27,7 @@ $(function () {
       dataType: 'json',
       success: function (data) {
         if (data.form_is_valid) {
+         alert("Operacion Exitosa!");
           $("#accountType-table tbody").html(data.html_accountType_list);
           $("#modal-accountType").modal("hide");
         }

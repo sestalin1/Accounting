@@ -1,0 +1,24 @@
+{% for E in movementTypes %}
+        <tr>
+          <td>{{ E.char }}</td>
+          <td>{{ E.description }}</td>
+         
+          <td style="width: 150px">
+            <button type="button"
+              class="btn btn-warning btn-sm js-update-movementType"
+              data-url="{% url 'movementTypesUpdate' E.id %}">
+             <span class="glyphicon glyphicon-pencil"></span> Editar
+            </button>
+            <button type="button"
+              class="btn btn-danger btn-sm js-delete-movementType"
+              data-url="{% url 'movementTypesDelete' E.id %}">
+            <span class="glyphicon glyphicon-trash"></span> Eliminar
+            </button>
+           </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="8" class="text-center bg-warning">No hay Tipos de Movimientos</td>
+        </tr>
+      {% endfor %}
+   

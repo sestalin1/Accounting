@@ -6,29 +6,24 @@
   <h1 class="page-header">{{ title }}</h1>
 
 <p>
-    <button type="button" class="btn btn-primary js-create-account" data-url="{% url 'accountingAccountsCreate' %}">
+    <button type="button" class="btn btn-primary js-create-movementType" data-url="{% url 'movementTypesCreate' %}">
       <span class="glyphicon glyphicon-plus"></span>
-      Crear Cuenta
+      Nuevo Tipo de Movimiento
     </button>
   </p>
 
-  <table class="table" id="account-table">
+  <table class="table" id="movementType-table">
     <thead>
       <tr>
         <th>#</th>
         <th>Descripci&oacute;n</th>
-        <th>Tipo de Cuenta</th>
-        <th>Permite Transacciones</th>
-        <th>Nivel</th>
-        <th>Cuenta Mayor</th>
-        <th>Balance</th>
-        <th>Estado</th>
+       
       </tr>
     </thead>
     <tbody>
-      {% include 'app/accountingAccountsParcial.html' %}
+      {% include 'app/movementTypesPartial.html' %}
      </table>
- <div class="modal fade" id="modal-account">
+ <div class="modal fade" id="modal-movementType">
     <div class="modal-dialog">
       <div class="modal-content">
 

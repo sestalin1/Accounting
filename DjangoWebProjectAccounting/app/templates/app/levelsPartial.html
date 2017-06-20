@@ -1,0 +1,24 @@
+{% for E in levels %}
+        <tr>
+          <td>{{ E.id }}</td>
+          <td>{{ E.description }}</td>
+         
+          <td style="width: 150px">
+            <button type="button"
+              class="btn btn-warning btn-sm js-update-book"
+              data-url="{% url 'levelsUpdatePartial' E.id %}">
+             <span class="glyphicon glyphicon-pencil"></span> Editar
+            </button>
+            <button type="button"
+              class="btn btn-danger btn-sm js-delete-level"
+              data-url="{% url 'levelsDeletePartial' E.id %}">
+            <span class="glyphicon glyphicon-trash"></span> Eliminar
+            </button>
+           </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="8" class="text-center bg-warning">No hay Niveles</td>
+        </tr>
+      {% endfor %}
+   
