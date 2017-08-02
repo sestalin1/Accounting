@@ -35,7 +35,7 @@ class AccountingAccounts (models.Model):
     accountTypeId = models.ForeignKey(AccountTypes,on_delete=models.CASCADE,verbose_name='Tipo de Cuenta')
     allowsTransactions = models.BooleanField('Permitir Transacciones?')
     level = models.PositiveSmallIntegerField('Nivel',choices=((1,'1'),(2,'2'),(3,'3'),(4,'4'),(5,'5'),(6,'6'))) # 1 to 6
-    majorAccount = models.ForeignKey('self',default='',verbose_name="Cuenta Major", blank=True, null=True)
+    majorAccount = models.ForeignKey('self',default='',verbose_name="Cuenta Major", blank=True, null=True, on_delete=models.CASCADE)
     balance = models.DecimalField('Balance',max_digits=9, decimal_places=2,default=0)
     state = models.BooleanField('Activo?')
 
@@ -75,8 +75,8 @@ class AccountingEntry(models.Model):
     id = models.AutoField('ID', primary_key=True)
     description = models.CharField('Descripción',max_length=30)
     auxiliarOrigin = models.IntegerField('Auxiliar',default = 1)#models.ForeignKey(AuxiliarOrigin) #Identificador del Auxiliar Origen o Propio Módulo Contabilidad
-    accountId = models.ForeignKey(AccountingAccounts)
-    movementTypeId = models.ForeignKey(MovementTypes)
+    accountId = models.ForeignKey(AccountingAccounts,on_delete=models.CASCADE)
+    movementTypeId = models.ForeignKey(MovementTypes,on_delete=models.CASCADE)
     datetime = models.DateField('Fecha', blank = True)
     amount = models.DecimalField('Monto',max_digits=11, decimal_places=2)
     state = models.BooleanField('Activo?')
@@ -84,9 +84,9 @@ class AccountingEntry(models.Model):
 
 class Majorization(models.Model):
     id = models.AutoField('ID', primary_key=True)
-    accountId = majorAccountId = models.ForeignKey(AccountingAccounts, related_name='Majorization_accountId')
-    majorAccountId = models.ForeignKey(AccountingAccounts, related_name='Majorization_majorAccountId')
-    movementTypeId = models.ForeignKey(MovementTypes)
+    accountId = majorAccountId = models.ForeignKey(AccountingAccounts, related_name='Majorization_accountId',on_delete=models.CASCADE)
+    majorAccountId = models.ForeignKey(AccountingAccounts, related_name='Majorization_majorAccountId',on_delete=models.CASCADE)
+    movementTypeId = models.ForeignKey(MovementTypes,on_delete=models.CASCADE)
     datetime = models.DateField('Fecha')
     balance = models.DecimalField('Monto',max_digits=5, decimal_places=2)
     state = models.BooleanField('Activo?')

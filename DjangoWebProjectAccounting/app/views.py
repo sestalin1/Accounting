@@ -304,7 +304,7 @@ def accountTypesUpdate(request, pk):
         form = AccountTypesForm(request.POST, instance=accountType)
     else:
         form = AccountTypesForm(instance=accountType)
-    return save_accountTypes_form(request, form, 'app/accountTypes.html')
+    return save_accountTypes_form(request, form, 'app/accountTypesUpdatePartial.html')
 
 @login_required
 def accountTypesDelete(request, pk):
@@ -313,12 +313,12 @@ def accountTypesDelete(request, pk):
     if request.method == 'POST':
         accountType.delete()
         data['form_is_valid'] = True
-        accountType = AccountTypes.objects.all()
+        accountTypes = AccountTypes.objects.all()
         data['html_accountTypes_list'] = render_to_string('app/accountTypesPartial.html', {
             'accountTypes': accountTypes
         })
     else:
-        context = {'accountTypes': accountTypes}
+        context = {'accountType': accountType}
         data['html_form'] = render_to_string('app/accountTypesDeletePartial.html', context, request=request)
     return JsonResponse(data)
 
