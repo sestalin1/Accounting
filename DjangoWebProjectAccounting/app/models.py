@@ -23,19 +23,24 @@ class AccountTypes (models.Model):
     description = models.CharField('Descripción',max_length=30)
     origin = models.CharField('Origen',max_length=3,choices=(('DB','Debito'),('CR','Credito'))) # DB to CR
     state = models.BooleanField('Activo?')
-
+    
+    def __str__(self):
+         return self.description
     
 
 class AccountingAccounts (models.Model):
     id = models.AutoField('ID', primary_key=True)
     name = models.CharField('Nombre',max_length=20)
     description = models.CharField('Descripción',max_length=30)
-    accountTypeId = models.ForeignKey(AccountTypes,on_delete=models.CASCADE,verbose_name='Tipo de uenta')
+    accountTypeId = models.ForeignKey(AccountTypes,on_delete=models.CASCADE,verbose_name='Tipo de Cuenta')
     allowsTransactions = models.BooleanField('Permitir Transacciones?')
     level = models.PositiveSmallIntegerField('Nivel',choices=((1,'1'),(2,'2'),(3,'3'),(4,'4'),(5,'5'),(6,'6'))) # 1 to 6
     majorAccount = models.ForeignKey('self',default='',verbose_name="Cuenta Major", blank=True, null=True)
     balance = models.DecimalField('Balance',max_digits=9, decimal_places=2,default=0)
     state = models.BooleanField('Activo?')
+
+    def __str__(self):
+         return self.name
     
 #class AccountingAccountsAdmin(admin.ModelAdmin):
  #   model = AccountingAccounts
@@ -69,11 +74,11 @@ class AuxiliarOrigin(models.Model):
 class AccountingEntry(models.Model):
     id = models.AutoField('ID', primary_key=True)
     description = models.CharField('Descripción',max_length=30)
-    auxiliarOriginId = models.ForeignKey(AuxiliarOrigin) #Identificador del Auxiliar Origen o Propio Módulo Contabilidad
+    auxiliarOrigin = models.IntegerField('Auxiliar',default = 1)#models.ForeignKey(AuxiliarOrigin) #Identificador del Auxiliar Origen o Propio Módulo Contabilidad
     accountId = models.ForeignKey(AccountingAccounts)
     movementTypeId = models.ForeignKey(MovementTypes)
-    datetime = models.DateField('Fecha')
-    amount = models.DecimalField('Monto',max_digits=5, decimal_places=2)
+    datetime = models.DateField('Fecha', blank = True)
+    amount = models.DecimalField('Monto',max_digits=11, decimal_places=2)
     state = models.BooleanField('Activo?')
 
 

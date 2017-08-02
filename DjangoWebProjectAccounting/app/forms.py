@@ -104,7 +104,7 @@ class AccountingEntryForm(forms.ModelForm):
         fields = (
             'id', 
             'description', 
-            'auxiliarOriginId', 
+            'auxiliarOrigin', 
             'accountId', 
             'movementTypeId', 
             'datetime',

@@ -63,7 +63,7 @@
     <Content Include="app\templates\app\accountingEntryCreatePartial.html" />
     <Content Include="app\templates\app\accountingEntryDeletePartial.html" />
     <Content Include="app\templates\app\accountingEntryFormPartial.html" />
-    <Content Include="app\templates\app\accountingEntryParcial.html" />
+    <Content Include="app\templates\app\accountingEntryPartial.html" />
     <Content Include="app\templates\app\accountingEntryUpdatePartial.html" />
     <Content Include="app\templates\app\accountTypes.html" />
     <Content Include="app\templates\app\accountTypesCreatePartial.html" />
